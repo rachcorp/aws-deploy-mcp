@@ -1,5 +1,4 @@
 const { AmplifyClient, CreateAppCommand, CreateBranchCommand, StartJobCommand, GetAppCommand, GetBranchCommand, ListAppsCommand, ListBranchesCommand } = require('@aws-sdk/client-amplify');
-const { Octokit } = require('@octokit/rest');
 const { execSync } = require('child_process');
 const fs = require('fs').promises;
 const path = require('path');
@@ -9,6 +8,17 @@ const chalk = require('chalk');
 const { ConfigManager } = require('./config-manager');
 const yaml = require('yaml');
 const fetch = require('node-fetch');
+
+// Use dynamic import for Octokit (ES module)
+let Octokit;
+
+async function initializeOctokit() {
+  if (!Octokit) {
+    const octokitModule = await import('@octokit/rest');
+    Octokit = octokitModule.Octokit;
+  }
+  return Octokit;
+}
 
 class LocalDeploymentService {
   constructor() {
@@ -26,10 +36,11 @@ class LocalDeploymentService {
         credentials: awsConfig.credentials
       });
 
-      // Initialize GitHub client
+      // Initialize GitHub client with dynamic import
       const githubToken = await this.configManager.getGitHubToken();
       if (githubToken) {
-        this.octokit = new Octokit({ auth: githubToken });
+        const OctokitClass = await initializeOctokit();
+        this.octokit = new OctokitClass({ auth: githubToken });
       }
     } catch (error) {
       // Don't fail initialization if credentials are invalid
