@@ -16,13 +16,13 @@ One-click deployment from your IDE to AWS Amplify. Deploy your web applications 
 
 ```bash
 # Run the setup wizard
-npx @aws-deploy-mcp/core setup
+npx @cloudagent/aws-deploy setup
 
 # Start the MCP server
-npx @aws-deploy-mcp/core start
+npx @cloudagent/aws-deploy start
 
 # Or deploy directly from CLI
-npx @aws-deploy-mcp/core deploy
+npx @cloudagent/aws-deploy deploy
 ```
 
 ## Installation
@@ -39,7 +39,7 @@ npx @aws-deploy-mcp/core deploy
 
 1. Run the setup wizard:
    ```bash
-   npx @aws-deploy-mcp/core setup
+   npx @cloudagent/aws-deploy setup
    ```
 
 2. Follow the interactive setup to configure:
@@ -49,7 +49,7 @@ npx @aws-deploy-mcp/core deploy
 
 3. Start the MCP server:
    ```bash
-   npx @aws-deploy-mcp/core start
+   npx @cloudagent/aws-deploy start
    ```
 
 4. Configure your IDE (Cursor) to connect to `http://localhost:3456`

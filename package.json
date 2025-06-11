@@ -1,5 +1,5 @@
 {
-    "name": "@aws-deploy-mcp/core",
+    "name": "@cloudagent/aws-deploy",
     "version": "1.0.2",
     "description": "One-click deployment from GitHub to AWS Amplify via MCP (Model Context Protocol)",
     "bin": {

@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2024-12-19
 
 ### Changed
-- Updated package name to scoped npm package `@aws-deploy-mcp/core`
+- Updated package name to scoped npm package `@cloudagent/aws-deploy`
 - Improved build and publish configuration with npm scoped packages
 - Enhanced GitHub Actions workflow for automated releases
 - Added .npmignore for cleaner npm packages
@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation
 
 ### Changed
-- Package name from `@your-company/amplify-deploy` to `@aws-deploy-mcp/core`
+- Package name from `@your-company/amplify-deploy` to `@cloudagent/aws-deploy`
 - Updated repository URLs and contact information
 - Improved README with clearer installation and usage instructions
 

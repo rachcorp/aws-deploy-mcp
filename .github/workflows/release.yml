@@ -53,14 +53,14 @@ jobs:
           
           ## 📦 Installation
           ```bash
-          npm install -g @aws-deploy-mcp/core
+          npm install -g @cloudagent/aws-deploy
           ```
           
           ## 📋 Changes
           Check the [CHANGELOG.md](https://github.com/rachcorp/aws-deploy-mcp/blob/main/CHANGELOG.md) for detailed changes.
           
           ## 🔗 Links
-          - [npm package](https://www.npmjs.com/package/@aws-deploy-mcp/core)
+          - [npm package](https://www.npmjs.com/package/@cloudagent/aws-deploy)
           - [Documentation](https://github.com/rachcorp/aws-deploy-mcp#readme)
         draft: false
         prerelease: false 
