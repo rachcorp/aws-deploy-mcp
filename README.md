@@ -393,7 +393,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/aws-deploy/aws-deploy-mcp.git
+git clone https://github.com/rachcorp/aws-deploy-mcp.git
 cd aws-deploy-mcp
 
 # Install dependencies
@@ -434,8 +434,8 @@ npm test -- --testNamePattern="deployment"
 
 ## Support
 
-- 🐛 Issues: [GitHub Issues](https://github.com/aws-deploy/aws-deploy-mcp/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/aws-deploy/aws-deploy-mcp/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/rachcorp/aws-deploy-mcp/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/rachcorp/aws-deploy-mcp/discussions)
 - 📚 Documentation: Check the README and inline code documentation
 
 ## License

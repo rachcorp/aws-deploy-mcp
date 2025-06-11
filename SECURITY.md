@@ -14,7 +14,7 @@ We take the security of AWS Deploy MCP seriously. If you discover a security vul
 
 ### Preferred Method: Private Security Advisory
 
-1. Go to the [Security tab](https://github.com/aws-deploy/aws-deploy-mcp/security) of our GitHub repository
+1. Go to the [Security tab](https://github.com/rachcorp/aws-deploy-mcp/security) of our GitHub repository
 2. Click "Report a vulnerability"
 3. Fill out the security advisory form with:
    - Description of the vulnerability
