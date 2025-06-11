@@ -1,11 +1,3 @@
-const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
-const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
-const { 
-  ListToolsRequestSchema, 
-  CallToolRequestSchema,
-  ListToolsResultSchema,
-  CallToolResultSchema 
-} = require('@modelcontextprotocol/sdk/types.js');
 const WebSocket = require('ws');
 const express = require('express');
 const { LocalDeploymentService } = require('./local-deployment');
@@ -13,14 +5,39 @@ const { SaaSDeploymentService } = require('./saas-deployment');
 const chalk = require('chalk');
 const { deployToAmplify } = require('./local-deployment.js');
 const { AmplifyEnvManager } = require('./amplify-env-manager.js');
-const ConfigManager = require('./config-manager.js');
+const { ConfigManager } = require('./config-manager.js');
 const path = require('path');
 const fs = require('fs');
+
+// Use dynamic imports for MCP SDK (ESM only)
+let Server, StdioServerTransport, ListToolsRequestSchema, CallToolRequestSchema, ListToolsResultSchema, CallToolResultSchema;
+
+async function initializeMCPSDK() {
+  const serverModule = await import('@modelcontextprotocol/sdk/server/index.js');
+  const stdioModule = await import('@modelcontextprotocol/sdk/server/stdio.js');
+  const typesModule = await import('@modelcontextprotocol/sdk/types.js');
+  
+  Server = serverModule.Server;
+  StdioServerTransport = stdioModule.StdioServerTransport;
+  ListToolsRequestSchema = typesModule.ListToolsRequestSchema;
+  CallToolRequestSchema = typesModule.CallToolRequestSchema;
+  ListToolsResultSchema = typesModule.ListToolsResultSchema;
+  CallToolResultSchema = typesModule.CallToolResultSchema;
+}
 
 class MCPServer {
   constructor(options = {}) {
     this.port = options.port || 3456;
     this.mode = options.mode || 'local';
+    this.server = null; // Will be initialized after SDK is loaded
+    
+    this.deploymentService = this.mode === 'saas' 
+      ? new SaaSDeploymentService()
+      : new LocalDeploymentService();
+  }
+  
+  async initialize() {
+    await initializeMCPSDK();
     
     this.server = new Server({
       name: 'amplify-deploy',
@@ -30,10 +47,6 @@ class MCPServer {
         tools: {}
       }
     });
-    
-    this.deploymentService = this.mode === 'saas' 
-      ? new SaaSDeploymentService()
-      : new LocalDeploymentService();
     
     this.setupTools();
   }
@@ -949,7 +962,7 @@ IMPORTANT: Always provide the absolute project_path to ensure deployment from th
         } else {
           // Try to find app by project name in deployment history
           try {
-            const ConfigManager = require('./config-manager.js');
+            const { ConfigManager } = require('./config-manager.js');
             const configManager = new ConfigManager();
             const deployments = await configManager.getDeploymentHistory();
             
@@ -1183,6 +1196,11 @@ IMPORTANT: Always provide the absolute project_path to ensure deployment from th
   }
 
   async start() {
+    // Initialize the server first
+    if (!this.server) {
+      await this.initialize();
+    }
+    
     // For stdio mode (when called from Cursor)
     if (process.argv.includes('--stdio')) {
       try {
