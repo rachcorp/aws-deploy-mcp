@@ -1,24 +1,37 @@
 {
-    "name": "aws-deploy-mcp",
-    "version": "1.0.0",
+    "name": "@aws-deploy-mcp/core",
+    "version": "1.0.2",
     "description": "One-click deployment from GitHub to AWS Amplify via MCP (Model Context Protocol)",
     "bin": {
         "aws-deploy": "./bin/amplify-deploy.js"
     },
     "main": "src/index.js",
+    "files": [
+        "src/",
+        "bin/",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "start": "node bin/amplify-deploy.js",
         "test": "jest",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
-        "build": "npm run clean && npm run compile",
-        "clean": "rm -rf dist",
-        "compile": "tsc",
+        "build": "npm run lint && npm test",
+        "clean": "rm -rf node_modules package-lock.json",
+        "reinstall": "npm run clean && npm install",
         "lint": "eslint src/ bin/ --ext .js",
         "lint:fix": "eslint src/ bin/ --ext .js --fix",
-        "prepublishOnly": "npm test && npm run build",
-        "version": "npm run build && git add -A dist",
-        "postversion": "git push && git push --tags"
+        "prepublishOnly": "npm run build",
+        "version": "npm run build && git add -A",
+        "postversion": "git push && git push --tags",
+        "release": "npm version patch && npm publish",
+        "release:minor": "npm version minor && npm publish",
+        "release:major": "npm version major && npm publish"
     },
     "keywords": [
         "aws",

@@ -2,8 +2,8 @@ describe('AWS Deploy MCP', () => {
   test('package.json should have correct structure', () => {
     const packageJson = require('../../package.json');
     
-    expect(packageJson.name).toBe('aws-deploy-mcp');
-    expect(packageJson.version).toBe('1.0.0');
+    expect(packageJson.name).toBe('@aws-deploy-mcp/core');
+    expect(packageJson.version).toBe('1.0.2');
     expect(packageJson.bin).toBeDefined();
     expect(packageJson.bin['aws-deploy']).toBe('./bin/amplify-deploy.js');
     expect(packageJson.main).toBe('src/index.js');
