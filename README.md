@@ -29,7 +29,7 @@ npx aws-deploy-mcp deploy
 
 ### Prerequisites
 
-- Node.js 16+
+- Node.js 18+
 - Git
 - AWS CLI (for local mode)
 - AWS Account (for local mode)

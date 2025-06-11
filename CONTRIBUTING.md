@@ -30,7 +30,7 @@ This project adheres to a code of conduct that we expect all contributors to fol
 
 ### Prerequisites
 
-- Node.js 16+ 
+- Node.js 18+ 
 - npm or yarn
 - Git
 - AWS CLI (for testing)
