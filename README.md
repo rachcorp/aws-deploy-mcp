@@ -16,13 +16,13 @@ One-click deployment from your IDE to AWS Amplify. Deploy your web applications 
 
 ```bash
 # Run the setup wizard
-npx amplify-deploy-mcp setup
+npx aws-deploy-mcp setup
 
 # Start the MCP server
-npx amplify-deploy-mcp start
+npx aws-deploy-mcp start
 
 # Or deploy directly from CLI
-npx amplify-deploy-mcp deploy
+npx aws-deploy-mcp deploy
 ```
 
 ## Installation
@@ -39,7 +39,7 @@ npx amplify-deploy-mcp deploy
 
 1. Run the setup wizard:
    ```bash
-   npx amplify-deploy-mcp setup
+   npx aws-deploy-mcp setup
    ```
 
 2. Follow the interactive setup to configure:
@@ -49,7 +49,7 @@ npx amplify-deploy-mcp deploy
 
 3. Start the MCP server:
    ```bash
-   npx amplify-deploy-mcp start
+   npx aws-deploy-mcp start
    ```
 
 4. Configure your IDE (Cursor) to connect to `http://localhost:3456`
@@ -75,25 +75,25 @@ Once the MCP server is running, you can use natural language commands:
 
 ```bash
 # Initialize in a project
-amplify-deploy init
+aws-deploy init
 
 # Start MCP server
-amplify-deploy start [--port 3456] [--mode local|saas]
+aws-deploy start [--port 3456] [--mode local|saas]
 
 # Deploy directly
-amplify-deploy deploy [--name myapp] [--branch main] [--region us-east-1]
+aws-deploy deploy [--name myapp] [--branch main] [--region us-east-1]
 
 # Check all prerequisites and project readiness
-amplify-deploy check [--path /path/to/project]
+aws-deploy check [--path /path/to/project]
 
 # Validate project structure only
-amplify-deploy validate [--path /path/to/project]
+aws-deploy validate [--path /path/to/project]
 
 # Check deployment status
-amplify-deploy status --app <appId>
+aws-deploy status --app <appId>
 
 # Run setup wizard
-amplify-deploy setup
+aws-deploy setup
 ```
 
 ## How It Works
@@ -324,7 +324,7 @@ Create `.amplify-deploy.json` in your project root:
 
 ```bash
 # Run with debug logging
-DEBUG=amplify-deploy:* amplify-deploy start
+DEBUG=aws-deploy:* aws-deploy start
 ```
 
 ## Architecture
@@ -393,8 +393,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/amplify-deploy/amplify-deploy-mcp.git
-cd amplify-deploy-mcp
+git clone https://github.com/aws-deploy/aws-deploy-mcp.git
+cd aws-deploy-mcp
 
 # Install dependencies
 npm install
@@ -434,8 +434,8 @@ npm test -- --testNamePattern="deployment"
 
 ## Support
 
-- 🐛 Issues: [GitHub Issues](https://github.com/amplify-deploy/amplify-deploy-mcp/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/amplify-deploy/amplify-deploy-mcp/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/aws-deploy/aws-deploy-mcp/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/aws-deploy/aws-deploy-mcp/discussions)
 - 📚 Documentation: Check the README and inline code documentation
 
 ## License
@@ -452,4 +452,3 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **Star ⭐ this repo if you find it useful!**
 
-Made with ❤️ for the developer community.

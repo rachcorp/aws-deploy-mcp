@@ -185,18 +185,11 @@ async function configureAWS(configManager) {
         }
       ]);
 
-      // Save to AWS credentials file
-      const credentialsContent = `[default]
-aws_access_key_id = ${credentials.accessKeyId}
-aws_secret_access_key = ${credentials.secretAccessKey}
-`;
-      
-      const configContent = `[default]
-region = ${credentials.region}
-`;
-
-      // Write credentials (this is simplified - in production, use AWS SDK)
-      console.log(chalk.yellow('Please run "aws configure" and enter these credentials.'));
+      // For security reasons, we don't write credentials to files directly
+      // Instead, guide the user to use AWS CLI
+      console.log(chalk.yellow('For security, please configure AWS credentials using:'));
+      console.log(chalk.gray('  aws configure'));
+      console.log(chalk.gray('  Enter your credentials when prompted'));
       break;
 
     case 'profile':

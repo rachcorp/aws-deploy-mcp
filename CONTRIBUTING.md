@@ -40,8 +40,8 @@ This project adheres to a code of conduct that we expect all contributors to fol
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/amplify-deploy-mcp.git
-cd amplify-deploy-mcp
+git clone https://github.com/YOUR_USERNAME/aws-deploy-mcp.git
+cd aws-deploy-mcp
 
 # Install dependencies
 npm install
@@ -214,7 +214,7 @@ describe('deployToAmplify', () => {
 
 ```bash
 # Enable debug logging
-DEBUG=amplify-deploy:* npm start
+DEBUG=aws-deploy:* npm start
 
 # Run with verbose logging
 node bin/amplify-deploy.js start --verbose
@@ -256,4 +256,4 @@ Contributors will be acknowledged in:
 - GitHub releases
 - Package.json contributors field
 
-Thank you for contributing to Amplify Deploy MCP! 🚀 
+Thank you for contributing to Amplify Deploy MCP! 
