@@ -62,8 +62,8 @@ jobs:
     - name: Test installation
       run: |
         npm pack
-        npm install -g ./amplify-deploy-mcp-*.tgz
-        amplify-deploy --version
+        npm install -g ./cloudagent-aws-deploy-*.tgz
+        aws-deploy --version
 
   release:
     runs-on: ubuntu-latest
