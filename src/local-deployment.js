@@ -567,27 +567,17 @@ Alternative: export GITHUB_TOKEN="your-github-token"`);
       
       if (!response.ok) {
         if (response.status === 401) {
-          // Get more details about the error
-          const errorText = await response.text();
           throw new Error(`GitHub token is invalid or expired (HTTP ${response.status}).
-          
-Response details: ${errorText}
 
 Please create a new token for AWS Amplify GitHub App:
 1. Install AWS Amplify GitHub App: https://github.com/apps/aws-amplify-us-east-1/installations/new
 2. Go to: https://github.com/settings/tokens/new
 3. Select "admin:repo_hook" scope (for GitHub App webhook management)
 4. Update your MCP configuration with the new token
-5. Restart Cursor
-
-Current token info:
-- Length: ${token.length} characters
-- Prefix: ${token.substring(0, 4)}...
-- Suffix: ...${token.substring(token.length - 4)}`);
+5. Restart Cursor`);
         }
         
-        const errorText = await response.text();
-        throw new Error(`GitHub API error: ${response.status} ${response.statusText}. Response: ${errorText}`);
+        throw new Error(`GitHub API error: ${response.status} ${response.statusText}. Please check your token permissions.`);
       }
       
       const user = await response.json();
@@ -601,10 +591,7 @@ Current token info:
       });
       
       if (!reposResponse.ok) {
-        const errorText = await reposResponse.text();
         throw new Error(`GitHub token validation failed for AWS Amplify GitHub App (HTTP ${reposResponse.status}).
-        
-Response details: ${errorText}
 
 Please create a new token for AWS Amplify GitHub App:
 1. Install AWS Amplify GitHub App: https://github.com/apps/aws-amplify-us-east-1/installations/new
@@ -635,7 +622,7 @@ AWS Amplify GitHub App requires 'admin:repo_hook' scope for:
 4. Update your MCP configuration
 5. Restart Cursor
 
-📋 Current token info:
+📋 Token validation info:
 - User: ${user.login}
 - Available scopes: ${scopes}
 - Missing: admin:repo_hook`);
@@ -648,11 +635,7 @@ AWS Amplify GitHub App requires 'admin:repo_hook' scope for:
       }
       throw new Error(`Failed to validate GitHub token: ${error.message}. Please check your internet connection and token.
 
-Token details for debugging:
-- Token length: ${token.length}
-- Token format: ${token.startsWith('ghp_') ? 'Classic (good)' : token.startsWith('github_pat_') ? 'Fine-grained (may not work with Amplify)' : 'Unknown format'}
-- Error type: ${error.name}
-- Network error: ${error.code || 'N/A'}`);
+Token format: ${token.startsWith('ghp_') ? 'Classic (compatible)' : token.startsWith('github_pat_') ? 'Fine-grained (may not work with Amplify)' : 'Unknown format'}`);
     }
   }
 
@@ -675,7 +658,7 @@ Required: Classic token (starts with 'ghp_')
     } else {
       throw new Error(`Unknown GitHub token format. AWS Amplify requires classic tokens.
 
-Current token format: Unknown (starts with '${token.substring(0, 4)}...')
+Current token format: Unknown format detected
 Required: Classic token (starts with 'ghp_')
 
 🔧 Create a classic token:
@@ -815,7 +798,6 @@ Your GitHub token passed validation but AWS Amplify rejected it. This usually me
    - Select repositories you want to deploy
 
 2. **Wrong Token Scope**: AWS Amplify GitHub App requires 'admin:repo_hook' scope
-   - Current token starts with: ${options.accessToken?.substring(0, 4)}...
    - Required scope: 'admin:repo_hook' (not 'repo')
    - Token must be classic (starts with 'ghp_')
 
@@ -844,16 +826,10 @@ AWS Error: ${error.message}`);
 AWS Error: ${error.message}`);
       }
       
-      // Generic AWS Amplify error with more details
+      // Generic AWS Amplify error with sanitized details
       throw new Error(`AWS Amplify deployment failed: ${error.message}
 
-Debug Information:
-- Error Type: ${error.name}
-- Error Code: ${error.code || 'N/A'}
-- HTTP Status: ${error.$metadata?.httpStatusCode || 'N/A'}
-- Request ID: ${error.$metadata?.requestId || 'N/A'}
-
-Please check the AWS Amplify console for more details.`);
+Please check the AWS Amplify console for more details or verify your AWS credentials and permissions.`);
     }
   }
 

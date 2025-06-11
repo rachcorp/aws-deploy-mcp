@@ -49,7 +49,7 @@ If applicable, include debug logs:
 
 ```bash
 # Run with debug logging
-DEBUG=amplify-deploy:* npx amplify-deploy-mcp [command]
+DEBUG=aws-deploy:* npx aws-deploy-mcp [command]
 ```
 
 ```

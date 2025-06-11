@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation
 
 ### Changed
-- Package name from `@your-company/amplify-deploy` to `amplify-deploy-mcp`
+- Package name from `@your-company/amplify-deploy` to `aws-deploy-mcp`
 - Updated repository URLs and contact information
 - Improved README with clearer installation and usage instructions
 

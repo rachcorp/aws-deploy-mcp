@@ -10,11 +10,11 @@ We release patches for security vulnerabilities for the following versions:
 
 ## Reporting a Vulnerability
 
-We take the security of Amplify Deploy MCP seriously. If you discover a security vulnerability, please follow these steps:
+We take the security of AWS Deploy MCP seriously. If you discover a security vulnerability, please follow these steps:
 
 ### Preferred Method: Private Security Advisory
 
-1. Go to the [Security tab](https://github.com/amplify-deploy/amplify-deploy-mcp/security) of our GitHub repository
+1. Go to the [Security tab](https://github.com/aws-deploy/aws-deploy-mcp/security) of our GitHub repository
 2. Click "Report a vulnerability"
 3. Fill out the security advisory form with:
    - Description of the vulnerability
@@ -129,4 +129,4 @@ We support safe harbor for security researchers who:
 
 If you have questions about this security policy or need clarification, please create a GitHub issue with the "security" label.
 
-Thank you for helping keep Amplify Deploy MCP secure! 🔒 
+Thank you for helping keep AWS Deploy MCP secure! 🔒 
