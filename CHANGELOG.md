@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2024-12-19
+
+### Changed
+- Updated package name to scoped npm package `@cloudagent/aws-deploy`
+- Improved build and publish configuration with npm scoped packages
+- Enhanced GitHub Actions workflow for automated releases
+- Added .npmignore for cleaner npm packages
+- Updated Node.js requirement to 18+ (removed Node.js 16 support)
+
+### Fixed
+- Updated all documentation to use new scoped package name
+- Fixed test expectations for new package name and version
+- Updated ESLint to version 9 with flat config format
+
+## [1.0.1] - 2024-12-19
+
 ### Added
 - Initial open source release preparation
 - Contributing guidelines
@@ -15,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive documentation
 
 ### Changed
-- Package name from `@your-company/amplify-deploy` to `aws-deploy-mcp`
+- Package name from `@your-company/amplify-deploy` to `@cloudagent/aws-deploy`
 - Updated repository URLs and contact information
 - Improved README with clearer installation and usage instructions
 
