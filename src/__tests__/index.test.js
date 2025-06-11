@@ -8,7 +8,7 @@ describe('AWS Deploy MCP', () => {
     expect(packageJson.bin['aws-deploy']).toBe('./bin/amplify-deploy.js');
     expect(packageJson.main).toBe('src/index.js');
     expect(packageJson.license).toBe('MIT');
-    expect(packageJson.engines.node).toBe('>=16.0.0');
+    expect(packageJson.engines.node).toBe('>=18.0.0');
   });
 
   test('should have required dependencies', () => {
