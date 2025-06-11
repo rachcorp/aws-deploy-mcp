@@ -34,7 +34,7 @@
         "@aws-sdk/client-amplify": "^3.445.0",
         "@aws-sdk/credential-providers": "^3.821.0",
         "@modelcontextprotocol/sdk": "^0.5.0",
-        "@octokit/rest": "^19.0.0",
+        "@octokit/rest": "^22.0.0",
         "chalk": "^4.1.2",
         "commander": "^11.0.0",
         "dotenv": "^16.0.0",
