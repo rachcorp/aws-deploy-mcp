@@ -245,8 +245,8 @@ Releases are handled by maintainers:
 
 ## Getting Help
 
-- 💬 [GitHub Discussions](https://github.com/amplify-deploy/amplify-deploy-mcp/discussions)
-- 🐛 [GitHub Issues](https://github.com/amplify-deploy/amplify-deploy-mcp/issues)
+- 💬 [GitHub Discussions](https://github.com/rachcorp/aws-deploy-mcp/discussions)
+- 🐛 [GitHub Issues](https://github.com/rachcorp/aws-deploy-mcp/issues)
 - 📖 Check existing documentation and README
 
 ## Recognition
